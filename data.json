@@ -1,0 +1,31 @@
+{
+  "teachers": [
+    {
+      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
+      "name": "Clark Dean",
+      "birth": "1993-08-15",
+      "education_level": "doutorado",
+      "lecture_type": "distance",
+      "subjects_taught": "Ciências",
+      "created_at": 1691529140435
+    },
+    {
+      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
+      "name": "Daniel Ford",
+      "birth": "1992-08-03",
+      "education_level": "ensino_medio_completo",
+      "lecture_type": "distance",
+      "subjects_taught": "Matemáticas",
+      "created_at": 1691529630357
+    },
+    {
+      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
+      "name": "Henry Donald",
+      "birth": "1993-03-03",
+      "education_level": "doutorado",
+      "lecture_type": "present",
+      "subjects_taught": "tecnología",
+      "created_at": 1693339367496
+    }
+  ]
+}
