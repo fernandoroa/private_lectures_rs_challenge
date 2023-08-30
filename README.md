@@ -47,6 +47,22 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
 * docker image: `fercyto/private_lectures_rs:0.4.3`, see `How to run`
 * *main URL*: `http://localhost:5040/teachers/create`
 
+### ***Fourth Challenge*** (portuguese):
+
+https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/master/desafios/04-4-show-edit-format-teacher.md
+
+#### Summary
+
+* Create a route to show a teacher, and another to edit its data
+* In utils, create the functions *age* to process birthday, and *graduation* to process the *select* input
+* Use the *split* method to process *subjects_taught* generating an array
+* Use constructor *Intl.DateTimeFormat* for pt-BR formatting
+* Move fields template to fields.njk
+* In utils, create a *date* function to return a proper input for HTML
+* Note: data.js and data.json still not integrated
+* docker image: `fercyto/private_lectures_rs:0.4.4`, see `How to run`
+* *main URL*: `http://localhost:5040/teachers/2/edit`
+
 ### How to run
 
 - Option 1 - node
@@ -57,6 +73,6 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
   * In the browser open `http://localhost:5040` or *main URL*
 - Option 2 - docker
   * Install and test docker on your system
-  * `docker pull fercyto/private_lectures_rs:0.4.3`
-  * `docker run -p 5040:5040 fercyto/private_lectures_rs:0.4.3`
+  * `docker pull fercyto/private_lectures_rs:0.4.4`
+  * `docker run -p 5040:5040 fercyto/private_lectures_rs:0.4.4`
   * In the browser open `http://localhost:5040` or *main URL*
