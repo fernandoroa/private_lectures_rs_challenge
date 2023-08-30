@@ -63,6 +63,19 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
 * docker image: `fercyto/private_lectures_rs:0.4.4`, see `How to run`
 * *main URL*: `http://localhost:5040/teachers/2/edit`
 
+### ***Fifth Challenge*** (portuguese):
+
+https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/master/desafios/04-5-put-delete-teacher.md
+
+#### Summary
+
+* Create a *PUT* route (*routes.js*) to get the edit form data and save them in the *.json* file, using lib *method-override*
+* Create the methods *put* in *teachers.js* to search for a teacher by id.
+* Create a *delete* button in the *show* page of the teacher, that calls a route to delete it from the *.json*, using lib *method-override*
+* Note: data.js and data.json still not integrated
+* docker image: `fercyto/private_lectures_rs:0.4.5`, see `How to run`
+* *main URL*: `http://localhost:5040/teachers/2`
+
 ### How to run
 
 - Option 1 - node
@@ -73,6 +86,6 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
   * In the browser open `http://localhost:5040` or *main URL*
 - Option 2 - docker
   * Install and test docker on your system
-  * `docker pull fercyto/private_lectures_rs:0.4.4`
-  * `docker run -p 5040:5040 fercyto/private_lectures_rs:0.4.4`
+  * `docker pull fercyto/private_lectures_rs:0.4.5`
+  * `docker run -p 5040:5040 fercyto/private_lectures_rs:0.4.5`
   * In the browser open `http://localhost:5040` or *main URL*
