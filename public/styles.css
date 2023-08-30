@@ -5,6 +5,7 @@
   --secondary-color: #a1b7ff;
   --color-gray: #777;
   --color-gray-5: #555;
+  --color-red: rgb(237, 14, 14);
 }
 
 * {
@@ -147,7 +148,7 @@ input {
   outline: none;
   font-weight: bold;
   font-size: 18px;
-  color: var(--color-gray-5);;
+  color: var(--color-gray-5);
 }
 
 input[type="radio"] {
@@ -176,4 +177,20 @@ a.button {
   box-sizing: border-box;
   text-align: center;
   text-decoration: none;
+}
+
+.button_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 15px;
+}
+
+.button_container a.button {
+  width: auto;
+}
+
+#form-delete button[type="submit"] {
+  margin-top: 32px;
+  background-color: var(--color-red);
+  width: 100%;
 }

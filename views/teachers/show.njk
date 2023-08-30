@@ -2,7 +2,7 @@
 {% block content %}
   <div class="card">
     <section class="avatar" style="background: url({{ teacher.avatar_url }}) no-repeat center center / cover">
-	  </section>
+    </section>
     <section class="details">
       <h3>Detalhes</h3>
       <div class="item">
@@ -33,7 +33,13 @@
         <div>Desde</div>
         <div>{{ teacher.created_at }}</div>
       </div>
-      <a href="{{ teacher.id }}/edit" class="button">Editar</a>
+      <div class="button_container">
+        <a href="{{ teacher.id }}/edit" class="button">Editar</a>
+        <form id="form-delete" action="/teachers?_method=DELETE" method="POST">
+          <input type="hidden" name="id" value={{ teacher.id }}>
+          <button type="submit">Deletar</button>
+        </form>
+      </div>
     </section>
   </div>
 {% endblock content %}
