@@ -71,8 +71,13 @@ header {
   margin: 45px auto;
   display: grid;
   grid-template-columns: 4fr 6fr;
+  grid-template-areas: "left right";
   box-shadow: 15px 20px 6px -2px rgba(0, 0, 0, 0.4);
   animation: up 1200ms ease-out;
+}
+
+.avatar {
+  grid-area: left;
 }
 
 @keyframes up {
@@ -88,6 +93,7 @@ header {
 /* details */
 
 .details {
+  grid-area: right;
   padding: 32px;
 }
 
@@ -154,7 +160,8 @@ input::placeholder {
   font-weight: normal;
 }
 
-button[type="submit"] {
+button[type="submit"],
+a.button {
   padding: 8px 32px;
   background-color: var(--primary-color);
   border-radius: 4px;
@@ -162,4 +169,11 @@ button[type="submit"] {
   width: 100%;
   color: white;
   font-size: 16px;
+}
+
+a.button {
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
 }
