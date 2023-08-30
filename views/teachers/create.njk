@@ -6,45 +6,7 @@
       style="background: url(https://source.unsplash.com/collection/772333/500x500) no-repeat center center / cover"></section>
     <section class="details">
       <h3>Novo Professor</h3>
-      <div class="item">
-        <div>Avatar URL</div>
-          <input type="url" name="avatar_url" placeholder="http://">
-      </div>
-      <div class="item">
-        <div>Nome completo</div>
-        <input type="text" name="name" placeholder="Nome">
-      </div>
-      <div class="item">
-        <div>Data de nascimento</div>
-        <input type="date" name="birth">
-      </div>
-      <div class="item">
-        <div>grau de Escolaridade</div>
-        <select name="education_level">
-          <option value="ensino_medio_completo">Ensino Médio Completo</option>
-          <option value="ensino_superior_completo">Ensino Superior Completo</option>
-          <option value="mestrado">Mestrado</option>
-          <option value="doutorado">Doutorado</option>
-        </select>
-      </div>
-      <div class="item">
-        <div>Tipo de aula</div>
-          <span>
-            <input type="radio" name="lecture_type" value="present" checked="checked">
-            Presencial
-          </span>
-          <span>
-            <input type="radio" name="lecture_type" value="distance">
-            À distância
-          </span>
-      </div>
-      <div class="item">
-        <div>Área de atuação</div>
-        <div>
-          <input type="text" name="subjects_taught" placeholder="Separe os serviços prestados por vírgula">
-        </div>
-      </div>
-      <button type="submit">Salvar</button>
+      {% include 'teachers/fields.njk' %}
     </section>
   </form>
 {% endblock content %}
