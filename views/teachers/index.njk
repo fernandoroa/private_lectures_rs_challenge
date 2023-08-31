@@ -1,41 +1,32 @@
 {% extends "layout.njk" %}
 {% block content %}
-  <div class="card">
-    <section
-      class="avatar"
-      style="background: url(https://source.unsplash.com/collection/772333/500x500) no-repeat center center / cover">
-    </section>
-    <section class="details">
-      <h3>Detalhes</h3>
-      {% set item = items[0] %}
-      <div class="item">
-        <div>Nome completo</div>
-        <div>{{ item.name }}</div>
-      </div>
-      <div class="item">
-        <div>Idade</div>
-        <div>{{ item.age }}</div>
-      </div>
-      <div class="item">
-        <div>Escolaridade</div>
-        <div>{{ item.education_level }}</div>
-      </div>
-      <div class="item">
-        <div>Tipo de aula</div>
-        <div>{{ item.lecture_type }}</div>
-      </div>
-      <div class="item">
-        <div>Acompanhamento</div>
-        <div>
-          {% for disci in item.subjects_taught %}
-            <span>{{ disci }}</span>
-          {% endfor %}
-        </div>
-      </div>
-      <div class="item">
-        <div>Desde</div>
-        <div>{{ item.created_at }}</div>
-      </div>
-    </section>
+  <div class="card table-container">
+    <table width="100%">
+      <thead>
+        <tr>
+          <th>Professor</th>
+          <th>Disciplinas</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for teacher in teachers %}
+          <tr>
+            <td>
+              <span style="background-image: url({{ teacher.avatar_url }})"></span>
+              {{ teacher.name }}
+            </td>
+            <td>
+              {% for subject in teacher.subjects_taught.split(",") %}
+                <span class="subjects_taught">{{ subject }}</span>
+              {% endfor %}
+            </td>
+            <td>
+              <a href="/teachers/{{ teacher.id }}">ver</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
 {% endblock content %}
