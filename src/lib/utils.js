@@ -1,5 +1,5 @@
 module.exports = {
-  age: function (timestamp) {
+  age(timestamp) {
     const today = new Date();
     const birthDate = new Date(timestamp);
 
@@ -11,7 +11,7 @@ module.exports = {
     }
     return age;
   },
-  graduation: function (graduation_selected) {
+  graduation(graduation_selected) {
     const graduation_object = {
       ensino_medio_completo: "Ensino Médio Completo",
       ensino_superior_completo: "Ensino Superior Completo",
@@ -20,14 +20,14 @@ module.exports = {
     };
     return graduation_object[graduation_selected];
   },
-  parse_lecture_type: function (lecture_type) {
+  parse_lecture_type(lecture_type) {
     const lecture_object = {
       present: "Presencial",
       distance: "À distância",
     };
     return lecture_object[lecture_type];
   },
-  date: function (timestamp) {
+  date(timestamp) {
     const date = new Date(timestamp);
 
     const year = date.getUTCFullYear();

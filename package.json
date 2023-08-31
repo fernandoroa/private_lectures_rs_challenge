@@ -1,11 +1,11 @@
 {
   "name": "private_lectures",
-  "version": "0.4.7",
+  "version": "0.5.1",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "browsersync": "browser-sync start --proxy localhost:5040 --files 'public,views'",
-    "nodemon": "nodemon server.js",
+    "browsersync": "browser-sync start --proxy localhost:5040 --files 'public, src/app/views'",
+    "nodemon": "nodemon src/server.js",
     "start": "npm-run-all -p nodemon browsersync"
   },
   "author": "",
@@ -13,7 +13,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "method-override": "^3.0.0",
-    "nunjucks": "^3.2.3"
+    "nunjucks": "^3.2.3",
+    "pg": "^8.11.3"
   },
   "devDependencies": {
     "browser-sync": "^2.27.7",
