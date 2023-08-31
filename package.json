@@ -1,6 +1,6 @@
 {
   "name": "private_lectures",
-  "version": "0.4.7",
+  "version": "0.5.1",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -13,7 +13,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "method-override": "^3.0.0",
-    "nunjucks": "^3.2.3"
+    "nunjucks": "^3.2.3",
+    "pg": "^8.11.3"
   },
   "devDependencies": {
     "browser-sync": "^2.27.7",
