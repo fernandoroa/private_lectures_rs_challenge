@@ -18,7 +18,7 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
 * Use `Roboto` font
 * Use css *box-sizing* for centralizing
 * Use css *after* and *transition* for the header links
-* docker image: `fercyto/private_lectures_rs:4.1`, see `How to run`
+* docker image: `fercyto/private_lectures_rs:4.1`, see `How to run 0.4`
 
 ### ***Second Challenge*** (portuguese):
 
@@ -31,7 +31,7 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
 * Add teacher photo and fields: name, age, etc.
 * Use css *nth-child* and border-top
 * Use css *@keyframes*, *animation* *box-shadow*
-* docker image: `fercyto/private_lectures_rs:0.4.2`, see `How to run`
+* docker image: `fercyto/private_lectures_rs:0.4.2`, see `How to run 0.4`
 
 ### ***Third Challenge*** (portuguese):
 
@@ -44,7 +44,7 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
 * Validate that all fields are filled with constructor *Object* and keys
 * Use library *fs* to write to a json
 * Note: data.js and data.json still not integrated
-* docker image: `fercyto/private_lectures_rs:0.4.3`, see `How to run`
+* docker image: `fercyto/private_lectures_rs:0.4.3`, see `How to run 0.4`
 * *main URL*: `http://localhost:5040/teachers/create`
 
 ### ***Fourth Challenge*** (portuguese):
@@ -60,7 +60,7 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
 * Move fields template to fields.njk
 * In utils, create a *date* function to return a proper input for HTML
 * Note: data.js and data.json still not integrated
-* docker image: `fercyto/private_lectures_rs:0.4.4`, see `How to run`
+* docker image: `fercyto/private_lectures_rs:0.4.4`, see `How to run 0.4`
 * *main URL*: `http://localhost:5040/teachers/2/edit`
 
 ### ***Fifth Challenge*** (portuguese):
@@ -73,7 +73,7 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
 * Create the methods *put* in *teachers.js* to search for a teacher by id.
 * Create a *delete* button in the *show* page of the teacher, that calls a route to delete it from the *.json*, using lib *method-override*
 * Note: data.js and data.json still not integrated
-* docker image: `fercyto/private_lectures_rs:0.4.5`, see `How to run`
+* docker image: `fercyto/private_lectures_rs:0.4.5`, see `How to run 0.4`
 * *main URL*: `http://localhost:5040/teachers/2`
 
 ### ***Sixth Challenge*** (portuguese):
@@ -84,7 +84,7 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
 
 * Show teachers' data in *.json* file in a table, creating a route
 * The table should show the picture
-* docker image: `fercyto/private_lectures_rs:0.4.6`, see `How to run`
+* docker image: `fercyto/private_lectures_rs:0.4.6`, see `How to run 0.4`
 
 ### ***Seventh Challenge*** (portuguese):
 
@@ -99,7 +99,7 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
 * Fields for students: email, school year, hour intensity, birthday
 * Process birthday to show only day and month
 * In *confirm.njk* add script to confirm deletion (cancel form with *preventDefault*)
-* docker image: `fercyto/private_lectures_rs:0.4.7`, see `How to run`
+* docker image: `fercyto/private_lectures_rs:0.4.7`, see `How to run 0.4`
 * version: 0.4.7
 
 ### How to run 0.4
@@ -144,11 +144,13 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-05/blob/mas
 * Use INSERT, SELECT, UPDATE, SET and WHERE, for the new methods to CRUD the database
 * version 0.5.2
 * A new repository with docker-compose file has been created to run the database
+
 ### How to run 0.5
 
 - docker
   * Instal *git* on your system
   * Install and test *docker* on your system
   * `git clone --recurse-submodules https://github.com/fernandoroa/private_lectures_parent_db`
+  * `cd private_lectures_parent_db`
   * `docker compose up`
   * In the browser open `http://localhost:5040`
