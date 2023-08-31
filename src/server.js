@@ -18,7 +18,7 @@ server.use(routes);
 
 server.set("view engine", "njk");
 
-var env = new nunjucks.Environment(new nunjucks.FileSystemLoader("views"), {
+var env = new nunjucks.Environment(new nunjucks.FileSystemLoader("src/app/views"), {
   autoescape: false,
   noCache: true,
 });
