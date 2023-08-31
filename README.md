@@ -96,6 +96,6 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
   * In the browser open `http://localhost:5040` or *main URL*
 - Option 2 - docker
   * Install and test docker on your system
-  * `docker pull fercyto/private_lectures_rs:0.4.5`
-  * `docker run -p 5040:5040 fercyto/private_lectures_rs:0.4.5`
+  * `docker pull fercyto/private_lectures_rs:0.4.6`
+  * `docker run -p 5040:5040 fercyto/private_lectures_rs:0.4.6`
   * In the browser open `http://localhost:5040` or *main URL*
