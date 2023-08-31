@@ -102,6 +102,20 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
 * docker image: `fercyto/private_lectures_rs:0.4.7`, see `How to run`
 * version: 0.4.7
 
+### How to run 0.4
+
+- Option 1 - node
+  * clone this repository
+  * Install *node.js*
+  * `npm install`
+  * `npm start`
+  * In the browser open `http://localhost:5040` or *main URL*
+- Option 2 - docker
+  * Install and test *docker* on your system
+  * `docker pull fercyto/private_lectures_rs:0.4.7`
+  * `docker run -p 5040:5040 fercyto/private_lectures_rs:0.4.7`
+  * In the browser open `http://localhost:5040` or *main URL*
+
 ### ***Eighth Challenge*** (portuguese):
 
 https://github.com/rocketseat-education/bootcamp-launchbase-desafios-05/blob/master/desafios/05-1-refatorando-aplicacao.md
@@ -121,17 +135,20 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-05/blob/mas
 * As this app cannot read/save data, a docker was not produced, see next challenge
 * version 0.5.1
 
-### How to run
+### ***Ninth Challenge*** (portuguese):
 
-- Option 1 - node
-  * clone this repository
-  * Install node.js
-  * `npm install`
-  * `npm start`
-  * In the browser open `http://localhost:5040` or *main URL*
-- Option 2 - docker
-  * Install and test docker on your system
-  * `docker pull fercyto/private_lectures_rs:0.4.7`
-  * `docker run -p 5040:5040 fercyto/private_lectures_rs:0.4.7`
-  * In the browser open `http://localhost:5040` or *main URL*
+https://github.com/rocketseat-education/bootcamp-launchbase-desafios-05/blob/master/desafios/05-2-interagindo-bd.md
 
+#### Summary
+
+* Use INSERT, SELECT, UPDATE, SET and WHERE, for the new methods to CRUD the database
+* version 0.5.2
+* A new repository with docker-compose file has been created to run the database
+### How to run 0.5
+
+- docker
+  * Instal *git* on your system
+  * Install and test *docker* on your system
+  * `git clone --recurse-submodules https://github.com/fernandoroa/private_lectures_parent_db`
+  * `docker compose up`
+  * In the browser open `http://localhost:5040`
