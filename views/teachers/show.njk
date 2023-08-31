@@ -24,8 +24,8 @@
       <div class="item">
         <div>Acompanhamento</div>
         <div>
-          {% for disci in teacher.subjects_taught %}
-            <span>{{ disci }}</span>
+          {% for subject in teacher.subjects_taught %}
+            <span>{{ subject }}</span>
           {% endfor %}
         </div>
       </div>
@@ -40,6 +40,7 @@
           <button type="submit">Deletar</button>
         </form>
       </div>
+      {% include 'confirm.njk' %}
     </section>
   </div>
 {% endblock content %}

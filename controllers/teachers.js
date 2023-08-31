@@ -1,10 +1,15 @@
 const fs = require("fs");
-const data = require("./data.json");
+const data = require("../data.json");
 
-const { age, date, graduation, parse_lecture_type } = require("./utils");
+const { age, date, graduation, parse_lecture_type } = require("../utils");
 
 exports.index = function (req, res) {
   return res.render("teachers/index", { teachers: data.teachers });
+};
+
+// create
+exports.create = function (req, res) {
+  return res.render("teachers/create");
 };
 
 // show
@@ -82,7 +87,7 @@ exports.edit = function (req, res) {
 
   const teacher = {
     ...foundTeacher,
-    birth: date(foundTeacher.birth),
+    birth: date(foundTeacher.birth).iso,
   };
 
   return res.render("teachers/edit", { teacher });

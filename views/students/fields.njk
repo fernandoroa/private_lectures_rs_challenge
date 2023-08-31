@@ -1,0 +1,26 @@
+<div class="item">
+  <div>Avatar URL</div>
+  <input type="url" name="avatar_url" placeholder="http://" value="{{ student.avatar_url }}">
+</div>
+<div class="item">
+  <div>Aluno</div>
+  <input type="text" name="name" placeholder="Nome" value="{{ student.name }}">
+</div>
+<div class="item">
+  <div>e-mail</div>
+  <input type="email" name="email" placeholder="" value="{{ student.email }}">
+</div>
+<div class="item">
+  <div>Ano Escolar</div>
+  <select name="school_year" , id="school_year"></select>
+</div>
+<div class="item">
+  <div>Carga horária semanal</div>
+  <input type="number" name="hour_intensity" placeholder="" value="{{ student.hour_intensity }}">
+</div>
+<div class="item">
+  <div>Data de nascimento</div>
+  <input type="date" name="birth" value="{{ student.birth }}">
+</div>
+{% include '../formutils.njk' %}
+<button type="submit">Salvar</button>

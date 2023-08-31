@@ -1,0 +1,13 @@
+<script>
+  const school_year_array = ["Ensino Fundamental 5", "Ensino médio 1", "Ensino médio 2", "Ensino médio 3"]
+  var options = school_year_array
+    .map(e => {
+      return `<option value="${e}" 
+      {% if student.school_year == "${e}" %}
+        selected
+      {% endif%}>${e}
+      </option>`
+    })
+    document.getElementById("school_year").innerHTML = options.join("")
+    document.querySelector('#school_year').value = "{{ student.school_year }}"
+</script>

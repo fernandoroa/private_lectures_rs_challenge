@@ -145,7 +145,8 @@ table tbody span.subjects_taught {
 
 /* FORM */
 
-input {
+input,
+select {
   width: 100%;
   outline: none;
   font-weight: bold;
@@ -244,7 +245,8 @@ tbody tr td:first-child span {
 }
 
 /* button in last column */
-tbody tr td:last-child a {
+tbody tr td:last-child a,
+.table-container > a {
   background-color: var(--primary-color);
   padding: 8px 16px;
   text-decoration: none;
@@ -252,6 +254,11 @@ tbody tr td:last-child a {
   color: white;
   font-size: 12px;
   border-radius: 4px;
+}
+
+.table-container > a {
+  margin-bottom: 16px;
+  display: inline-block;
 }
 
 td:last-child {
