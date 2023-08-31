@@ -76,6 +76,16 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
 * docker image: `fercyto/private_lectures_rs:0.4.5`, see `How to run`
 * *main URL*: `http://localhost:5040/teachers/2`
 
+### ***Sixth Challenge*** (portuguese):
+
+https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/master/desafios/04-6-list-teachers.md
+
+#### Summary
+
+* Show teachers' data in *.json* file in a table, creating a route
+* The table should show the picture
+* docker image: `fercyto/private_lectures_rs:0.4.6`, see `How to run`
+
 ### How to run
 
 - Option 1 - node
