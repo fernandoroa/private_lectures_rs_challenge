@@ -86,6 +86,21 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
 * The table should show the picture
 * docker image: `fercyto/private_lectures_rs:0.4.6`, see `How to run`
 
+### ***Seventh Challenge*** (portuguese):
+
+https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/master/desafios/04-7-students.md
+
+#### Summary
+
+* Create for *students* the structure as in *teachers*
+* Active menu: show which page is active, bold
+* Move *teachers*' methods and *students* to folder *controllers*
+* Add *buttons* to add new *teachers/students* in the table pages
+* Fields for students: email, school year, hour intensity, birthday
+* Process birthday to show only day and month
+* In *confirm.njk* add script to confirm deletion (cancel form with *preventDefault*)
+* docker image: `fercyto/private_lectures_rs:0.4.7`, see `How to run`
+
 ### How to run
 
 - Option 1 - node
@@ -96,6 +111,7 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
   * In the browser open `http://localhost:5040` or *main URL*
 - Option 2 - docker
   * Install and test docker on your system
-  * `docker pull fercyto/private_lectures_rs:0.4.6`
-  * `docker run -p 5040:5040 fercyto/private_lectures_rs:0.4.6`
+  * `docker pull fercyto/private_lectures_rs:0.4.7`
+  * `docker run -p 5040:5040 fercyto/private_lectures_rs:0.4.7`
   * In the browser open `http://localhost:5040` or *main URL*
+
