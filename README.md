@@ -100,6 +100,26 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-04/blob/mas
 * Process birthday to show only day and month
 * In *confirm.njk* add script to confirm deletion (cancel form with *preventDefault*)
 * docker image: `fercyto/private_lectures_rs:0.4.7`, see `How to run`
+* version: 0.4.7
+
+### ***Eighth Challenge*** (portuguese):
+
+https://github.com/rocketseat-education/bootcamp-launchbase-desafios-05/blob/master/desafios/05-1-refatorando-aplicacao.md
+
+#### Summary
+
+* This is the beginning of the implementation of a data base.
+* Create in Postbird a database with the teachers' fields
+* Structure the app subfolders
+  - src:
+    * files: *routes.js* and *server.js*
+    * folders:
+      * *app*: *controllers* and *views*
+      * *config*: *db.js* (`pg Pool`)
+      * *lib*: *utils.js*
+* In the app connect to the database with library `pg`
+* As this app cannot read/save data, a docker was not produced, see next challenge
+* version 0.5.1
 
 ### How to run
 
