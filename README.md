@@ -150,6 +150,7 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-05/blob/mas
 - docker
   * Instal *git* on your system
   * Install and test *docker* on your system
+  * If you are in Windows (WSL2) don't use `/mnt/c/User/path`, go to `/home/user` with `cd ~`
   * `git clone --recurse-submodules https://github.com/fernandoroa/private_lectures_parent_db`
   * `cd private_lectures_parent_db`
   * `docker compose up`
