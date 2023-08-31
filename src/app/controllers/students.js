@@ -1,6 +1,11 @@
+const { date } = require("../../lib/utils");
+const Student = require("../models/Student");
+
 module.exports = {
   index(req, res) {
-    return res.render("students/index");
+    Student.all(function (students) {
+      return res.render("students/index", { students });
+    });
   },
   create(req, res) {
     return res.render("students/create");
@@ -12,13 +17,26 @@ module.exports = {
       if (req.body[key] == "") return res.send("please fill all fields");
     }
 
-    return;
+    Student.create(req.body, function (student) {
+      return res.redirect(`/students/${student.id}`);
+    });
   },
   show(req, res) {
-    return;
+    Student.find(req.params.id, function (student) {
+      if (!student) return res.send("Missing student");
+
+      student.birth = date(student.birth).birthDay;
+
+      return res.render("students/show", { student });
+    });
   },
   edit(req, res) {
-    return;
+    Student.find(req.params.id, function (student) {
+      if (!student) return res.send("Missing student");
+
+      student.birth = date(student.birth).iso;
+      return res.render("students/edit", { student });
+    });
   },
   put(req, res) {
     const keys = Object.keys(req.body);
@@ -27,9 +45,13 @@ module.exports = {
       if (req.body[key] == "") return res.send("please fill all fields");
     }
 
-    return;
+    Student.update(req.body, function () {
+      return res.redirect(`/students/${req.body.id}`);
+    });
   },
   delete(req, res) {
-    return;
+    Student.delete(req.body.id, function () {
+      return res.redirect(`/students`);
+    });
   },
 };
