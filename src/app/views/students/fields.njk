@@ -22,5 +22,15 @@
   <div>Data de nascimento</div>
   <input type="date" name="birth" value="{{ student.birth }}">
 </div>
+<div class="item">
+  <div>Professor</div>
+  <select name="teacher">
+    {% for teacher in teacherOptions %}
+      <option value="{{teacher.id}}" {% if student.teacher_id == teacher.id %} selected {% endif %}>
+        {{teacher.name}}
+      </option>
+    {% endfor %}}
+  </select>
+</div>
 {% include '../formutils.njk' %}
 <button type="submit">Salvar</button>
