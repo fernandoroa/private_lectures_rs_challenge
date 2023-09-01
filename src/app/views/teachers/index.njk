@@ -1,12 +1,19 @@
 {% extends "layout.njk" %}
 {% block content %}
   <div class="card table-container">
-    <a href="/teachers/create">Novo</a>
+    <div class="header">
+      <a class="button" href="/teachers/create">Novo</a>
+      <form action="/teachers" method="GET">
+        <input type="text" name="filter" placeholder="Nome ou Área de atuação" value={{ filter }}>
+        <button type="submit">Filtrar</button>
+      </form>
+    </div>
     <table width="100%">
       <thead>
         <tr>
           <th>Professor</th>
           <th>Disciplinas</th>
+          <th>Alunos</th>
           <th>Ação</th>
         </tr>
       </thead>
@@ -21,6 +28,9 @@
               {% for subject in teacher.subjects_taught.split(",") %}
                 <span class="subjects_taught">{{ subject }}</span>
               {% endfor %}
+            </td>
+            <td>
+              {{ teacher.total_students }}
             </td>
             <td>
               <a href="/teachers/{{ teacher.id }}">ver</a>

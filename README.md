@@ -36,6 +36,19 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-05/blob/mas
 * Use INSERT, SELECT, UPDATE, SET and WHERE, for the new methods to CRUD the database
 * version 0.5.2
 * A new repository with docker-compose file has been created to run the database
+* In `How to run 0.5` use:
+  - `git clone -b db_docker_5.2 --recurse-submodules https://github.com/fernandoroa/private_lectures_parent_db`
+### ***Tenth Challenge*** (portuguese):
+
+https://github.com/rocketseat-education/bootcamp-launchbase-desafios-05/blob/master/desafios/05-3-relacionamentos-filtros-bd.md
+
+#### Summary
+
+* Create a relation between *teachers* and *students* tables by adding the field *teacher_id* in the *students* table
+* Add a *select* field in the edition students' *form* showing registered teachers, and in the *show* page display the teacher.
+* Filtering: in the *index* page of teachers add an input text and a button to filter teachers
+* For the method *index* in *controllers*, use a method *findBy* in *models* returning matches with `ILIKE`
+* version 0.5.3
 
 ### How to run 0.5
 
