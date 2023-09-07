@@ -1,11 +1,17 @@
 {% extends "layout.njk" %}
 {% block content %}
   <div class="card table-container">
-    <a href="/students/create">Novo</a>
+    <div class="header">
+      <a class="button" href="/students/create">Novo</a>
+      <form action="/students" method="GET">
+        <input type="text" name="filter" placeholder="Nome ou e-mail" value={{ filter }}>
+        <button type="submit">Filtrar</button>
+      </form>
+    </div>
     <table width="100%">
       <thead>
         <tr>
-          <th>Aluno</th>
+          <th colspan="2">Aluno</th>
           <th>Email</th>
           <th>Ano escolar</th>
           <th>Ação</th>
@@ -16,8 +22,8 @@
           <tr>
             <td>
               <span style="background-image: url({{ student.avatar_url }})"></span>
-              {{ student.name }}
             </td>
+            <td>{{ student.name }}</td>
             <td>{{ student.email }}</td>
             <td>{{ student.school_year }}</td>
             <td>
@@ -27,5 +33,10 @@
         {% endfor %}
       </tbody>
     </table>
+    <div class="pagination"
+      data-page={{pagination.page}}
+      data-total={{pagination.total}}
+      data-filter={{filter}}
+    ></div>
   </div>
 {% endblock content %}

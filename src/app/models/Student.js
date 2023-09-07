@@ -3,16 +3,37 @@ const db = require("../../config/db");
 
 module.exports = {
   // index
-  all(callback) {
-    db.query(
-      `SELECT * 
+  paginate(params) {
+    const { filter, limit, offset, callback } = params;
+
+    let query = "",
+      filterQuery = "",
+      totalQuery = `(
+          SELECT count(*) FROM students
+          )`;
+
+    if (filter) {
+      filterQuery = `
+      WHERE students.name ILIKE '%${filter}%'
+      OR students.email ILIKE '%${filter}%'
+      `;
+      totalQuery = `(
+        SELECT count(*) FROM students 
+        ${filterQuery}        
+      )`;
+    }
+
+    query = `
+    SELECT students.*, ${totalQuery} AS total
     FROM students
-    ORDER BY name ASC`,
-      function (err, results) {
-        if (err) throw `Database error! ${err}`;
-        callback(results.rows);
-      }
-    );
+    ${filterQuery}
+    ORDER BY students.name  LIMIT $1 OFFSET $2
+    `;
+
+    db.query(query, [limit, offset], function (err, results) {
+      if (err) throw `Database error! ${err}`;
+      callback(results.rows);
+    });
   },
   // post
   create(data, callback) {
@@ -36,7 +57,7 @@ module.exports = {
       data.school_year,
       data.hour_intensity,
       date(data.birth).iso,
-      data.teacher
+      data.teacher,
     ];
 
     db.query(query, values, function (err, results) {
@@ -80,7 +101,7 @@ module.exports = {
       data.hour_intensity,
       date(data.birth).iso,
       data.teacher,
-      data.id
+      data.id,
     ];
 
     db.query(query, values, function (err, results) {
@@ -99,9 +120,9 @@ module.exports = {
     );
   },
   teachersSelectOptions(callback) {
-    db.query(`SELECT name, id FROM teachers`, function(err, results) {
-      if(err) throw 'Database error!'
-      callback(results.rows)
-    })
-  }
+    db.query(`SELECT name, id FROM teachers`, function (err, results) {
+      if (err) throw `Database error! ${err}`;
+      callback(results.rows);
+    });
+  },
 };

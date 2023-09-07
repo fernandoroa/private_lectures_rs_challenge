@@ -137,7 +137,6 @@ table tbody span.subjects_taught {
   border-radius: 16px;
   color: var(--color-gray);
   margin-right: 4px;
-  margin-top: 8px;
   display: inline-block;
   font-weight: bold;
   text-transform: uppercase;
@@ -200,24 +199,18 @@ a.button {
 }
 
 /* index table */
-.table-container {
-  display: block;
-  padding: 40px;
-  box-sizing: border-box;
-}
-
 .table-container table {
   border-spacing: 0;
   table-layout: auto;
 }
 
 .table-container thead tr th {
-  text-align: center;
+  text-align: left;
 }
 
 td,
 th {
-  padding: 16px;
+  padding: 10px;
   overflow: hidden;
   box-shadow: 0 -1px 0 var(--color-gray-d9);
 }
@@ -229,13 +222,13 @@ th {
   font-size: 14px;
 }
 
-tbody tr td:first-child {
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  align-items: center;
+.table-container tr th:first-child,
+td:first-child {
+  width: 45px;
 }
 
 tbody tr td:first-child span {
+  float: right;
   width: 40px;
   height: 40px;
   background-position: center;
@@ -266,18 +259,10 @@ td:last-child {
   text-align: center;
 }
 
-
 /* FILTER */
-.table-container .header {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	align-items: center;
-	margin-bottom: 32px;
-}
-
 .table-container .header a {
   margin: 0;
-	width: 120px;
+  width: 120px;
 }
 
 .table-container .header form button {
@@ -286,13 +271,50 @@ td:last-child {
 
 .table-container .header form {
   display: grid;
-	grid-template-columns: 1fr 120px;
-	align-items: center; 
-	grid-gap: 8px;
+  grid-template-columns: 1fr 120px;
+  align-items: center;
+  grid-gap: 8px;
 }
 
 .table-container .header form input {
-	border: 1px solid var(--color-white-e);
-	padding: 4px 8px;
-	box-sizing: border-box;
+  border: 1px solid var(--color-white-e);
+  padding: 4px 8px;
+  box-sizing: border-box;
+}
+
+/*pagination*/
+.table-container {
+  display: grid;
+  grid-template: 64px 1fr 16px / 1fr;
+  padding: 40px;
+  box-sizing: border-box; /* padding gets inside area, respecting width */
+}
+
+.table-container .header {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.table-container .pagination {
+  margin: 0;
+  align-self: end;
+  justify-self: center;
+}
+
+.pagination a,
+.pagination span {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin-right: 16px;
+}
+
+.pagination a:hover {
+  filter: brightness(0.3);
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.page_in_use {
+  font-weight: bold;
 }

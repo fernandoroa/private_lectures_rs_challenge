@@ -3,18 +3,39 @@ const db = require("../../config/db");
 
 module.exports = {
   // index
-  all(callback) {
-    db.query(
-      `SELECT teachers.*, count(students) AS total_students
+  paginate(params) {
+    const { filter, limit, offset, callback } = params;
+
+    let query = "",
+      filterQuery = "",
+      totalQuery = `(
+          SELECT count(*) FROM teachers
+          )`;
+
+    if (filter) {
+      filterQuery = `
+      WHERE teachers.name ILIKE '%${filter}%'
+      OR teachers.subjects_taught ILIKE '%${filter}%'
+      `;
+      totalQuery = `(
+        SELECT count(*) FROM teachers 
+        ${filterQuery}        
+      )`;
+    }
+
+    query = `
+    SELECT teachers.*, ${totalQuery} AS total, count(students) AS total_students
     FROM teachers
-    LEFT JOIN students ON (students.teacher_id = teachers.id)
-    GROUP BY teachers.id
-    ORDER BY total_students DESC`,
-      function (err, results) {
-        if (err) throw `Database error! ${err}`;
-        callback(results.rows);
-      }
-    );
+    LEFT JOIN students ON (teachers.id = students.teacher_id)
+    ${filterQuery}
+    GROUP BY teachers.id ORDER BY teachers.name LIMIT $1 OFFSET $2
+    
+    `;
+
+    db.query(query, [limit, offset], function (err, results) {
+      if (err) throw `Database error! ${err}`;
+      callback(results.rows);
+    });
   },
   // post
   create(data, callback) {
@@ -60,7 +81,8 @@ module.exports = {
     );
   },
   findBy(filter, callback) {
-    db.query(`
+    db.query(
+      `
     SELECT teachers.*, count(students) AS total_students
     FROM teachers
     LEFT JOIN students ON (students.teacher_id = teachers.id) 
@@ -68,10 +90,12 @@ module.exports = {
     OR teachers.subjects_taught ILIKE '%${filter}%' 
     GROUP BY teachers.id
     ORDER BY total_students DESC
-    `, function(err, results){
-      if(err) throw `Database error! ${err}`
-      callback(results.rows)
-    })   
+    `,
+      function (err, results) {
+        if (err) throw `Database error! ${err}`;
+        callback(results.rows);
+      }
+    );
   },
   update(data, callback) {
     const query = `
