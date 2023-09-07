@@ -5,7 +5,7 @@
     <table width="100%">
       <thead>
         <tr>
-          <th>Aluno</th>
+          <th colspan="2">Aluno</th>
           <th>Email</th>
           <th>Ano escolar</th>
           <th>Ação</th>
@@ -16,8 +16,8 @@
           <tr>
             <td>
               <span style="background-image: url({{ student.avatar_url }})"></span>
-              {{ student.name }}
             </td>
+            <td>{{ student.name }}</td>
             <td>{{ student.email }}</td>
             <td>{{ student.school_year }}</td>
             <td>
