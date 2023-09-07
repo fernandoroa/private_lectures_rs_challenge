@@ -50,10 +50,27 @@ https://github.com/rocketseat-education/bootcamp-launchbase-desafios-05/blob/mas
 * For the method *index* in *controllers*, use a method *findBy* in *models* returning matches with `ILIKE`
 * version 0.5.3
 
+### ***Eleventh Challenge*** (portuguese):
+
+https://github.com/rocketseat-education/bootcamp-launchbase-desafios-05/blob/master/desafios/05-4-paginacao-bd.md
+
+#### Summary
+
+* version 0.5.4
+
+##### **Backend**
+* Create method for page navigation: *index* in controllers/instructors.js defining vars `page` and `limit` and calculate `offset`
+* In SQL model, create method *paginate* considering pages and filtering, with `LIMIT` and `OFFSET`
+
+##### **Frontend**
+* When more than 7 pages, present first 2, and last 2 pages, and 1 less and 1 more than the selected page.
+* Only show ellipsis between those groups if they represent 2 or more pages
+* Apply pagination to students too.
+
 ### How to run 0.5
 
 - docker
-  * Instal *git* on your system
+  * Install *git* on your system
   * Install and test *docker* on your system
   * If you are in Windows (WSL2) don't use `/mnt/c/User/path`, go to `/home/user` with `cd ~`
   * `git clone --recurse-submodules https://github.com/fernandoroa/private_lectures_parent_db`
