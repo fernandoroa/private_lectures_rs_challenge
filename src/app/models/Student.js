@@ -1,5 +1,5 @@
 const { date } = require("../../lib/utils");
-const db = require("../../config/db");
+const { db } = require("../../config/db");
 
 module.exports = {
   // index
@@ -55,29 +55,33 @@ module.exports = {
       data.name,
       data.email,
       data.school_year,
-      data.hour_intensity,
+      +data.hour_intensity,
       date(data.birth).iso,
       data.teacher,
     ];
 
-    db.query(query, values, function (err, results) {
-      if (err) throw `Database error! ${err}`;
-      callback(results.rows[0]);
-    });
+    db.any(query, values)
+      .then(result => {
+        callback(result[0]);
+      })
+      .catch(error => {
+        console.log("error:", error);
+      });
   },
   find(id, callback) {
-    db.query(
-      `
+    let query = `
       SELECT students.*, teachers.name AS teacher_name 
       FROM students 
       LEFT JOIN teachers ON (students.teacher_id = teachers.id)
-      WHERE students.id = $1`,
-      [id],
-      function (err, results) {
-        if (err) throw `Database error! ${err}`;
-        callback(results.rows[0]);
-      }
-    );
+      WHERE students.id = $1`;
+
+    db.any(query, [+id])
+      .then(result => {
+        callback(result[0]);
+      })
+      .catch(error => {
+        console.log("error:", error);
+      });
   },
   update(data, callback) {
     const query = `
@@ -98,31 +102,36 @@ module.exports = {
       data.name,
       data.email,
       data.school_year,
-      data.hour_intensity,
+      +data.hour_intensity,
       date(data.birth).iso,
       data.teacher,
       data.id,
     ];
 
-    db.query(query, values, function (err, results) {
-      if (err) throw `Database error! ${err}`;
-      callback();
-    });
+    db.any(query, values)
+      .then(() => {
+        callback();
+      })
+      .catch(error => {
+        console.log("error:", error);
+      });
   },
   delete(id, callback) {
-    db.query(
-      `DELETE FROM students WHERE id = $1`,
-      [id],
-      function (err, results) {
-        if (err) throw `Database error! ${err}`;
-        return callback();
-      }
-    );
+    db.any(`DELETE FROM students WHERE id = $1`, [id])
+      .then(() => {
+        callback();
+      })
+      .catch(error => {
+        console.log("error:", error);
+      });
   },
   teachersSelectOptions(callback) {
-    db.query(`SELECT name, id FROM teachers`, function (err, results) {
-      if (err) throw `Database error! ${err}`;
-      callback(results.rows);
-    });
+    db.any(`SELECT name, id FROM teachers`)
+      .then(result => {
+        callback(result);
+      })
+      .catch(error => {
+        console.log("error:", error);
+      });
   },
 };

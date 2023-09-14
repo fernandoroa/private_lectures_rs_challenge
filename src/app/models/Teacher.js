@@ -1,5 +1,5 @@
 const { date } = require("../../lib/utils");
-const db = require("../../config/db");
+const { db } = require("../../config/db");
 
 module.exports = {
   // index
@@ -62,40 +62,27 @@ module.exports = {
       date(Date.now()).iso,
     ];
 
-    db.query(query, values, function (err, results) {
-      if (err) throw `Database error! ${err}`;
-      callback(results.rows[0]);
-    });
+    db.any(query, values)
+      .then(result => {
+        callback(result[0]);
+      })
+      .catch(error => {
+        console.log("error:", error);
+      });
   },
   find(id, callback) {
-    db.query(
-      `
-      SELECT * 
-      FROM teachers 
-      WHERE id = $1`,
-      [id],
-      function (err, results) {
-        if (err) throw `Database error! ${err}`;
-        callback(results.rows[0]);
-      }
-    );
-  },
-  findBy(filter, callback) {
-    db.query(
-      `
-    SELECT teachers.*, count(students) AS total_students
-    FROM teachers
-    LEFT JOIN students ON (students.teacher_id = teachers.id) 
-    WHERE teachers.name ILIKE '%${filter}%'
-    OR teachers.subjects_taught ILIKE '%${filter}%' 
-    GROUP BY teachers.id
-    ORDER BY total_students DESC
-    `,
-      function (err, results) {
-        if (err) throw `Database error! ${err}`;
-        callback(results.rows);
-      }
-    );
+    let query = `
+      SELECT *
+      FROM teachers
+      WHERE id = $1`;
+
+    db.any(query, [+id])
+      .then(result => {
+        callback(result[0]);
+      })
+      .catch(error => {
+        console.log("error:", error);
+      });
   },
   update(data, callback) {
     const query = `
@@ -120,19 +107,21 @@ module.exports = {
       data.id,
     ];
 
-    db.query(query, values, function (err, results) {
-      if (err) throw `Database error! ${err}`;
-      callback();
-    });
+    db.any(query, values)
+      .then(() => {
+        callback();
+      })
+      .catch(error => {
+        console.log("error:", error);
+      });
   },
   delete(id, callback) {
-    db.query(
-      `DELETE FROM teachers WHERE id = $1`,
-      [id],
-      function (err, results) {
-        if (err) throw `Database error! ${err}`;
-        return callback();
-      }
-    );
+    db.any(`DELETE FROM teachers WHERE id = $1`, [id])
+      .then(() => {
+        callback();
+      })
+      .catch(error => {
+        console.log("error:", error);
+      });
   },
 };

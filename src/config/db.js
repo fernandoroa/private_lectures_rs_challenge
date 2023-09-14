@@ -1,9 +1,13 @@
-const { Pool } = require("pg")
+const pgp = require('pg-promise')();
 
-module.exports = new Pool ({
+const databaseConfig = {
   user: 'fernando',
-  password: "123456",
-  host: "db", // use localhost if not in docker compose !!
+  password: '123456',
+  host: 'db',
   port: 5433,
-  database: "my_teacher"
-})
+  database: 'my_teacher'
+}
+
+const db = pgp(databaseConfig);
+
+module.exports = { db };
