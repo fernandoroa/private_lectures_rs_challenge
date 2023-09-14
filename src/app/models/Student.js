@@ -8,7 +8,7 @@ module.exports = {
 
     let query = "",
       filterQuery = "",
-      totalQuery = `(
+      totalQueryOrig = totalQuery = `(
           SELECT count(*) FROM students
           )`;
 
@@ -19,21 +19,47 @@ module.exports = {
       `;
       totalQuery = `(
         SELECT count(*) FROM students 
-        ${filterQuery}        
+        ${filterQuery}
       )`;
     }
 
     query = `
-    SELECT students.*, ${totalQuery} AS total
-    FROM students
-    ${filterQuery}
-    ORDER BY students.name  LIMIT $1 OFFSET $2
+    create or replace function get_all_data_if_filter_returns_nothing_students()
+      returns table(id int, avatar_url text, name text, email text, school_year text, hour_intensity int, birth timestamp,
+        teacher_id int, total bigint)
+    language plpgsql
+    as
+    $_$
+    declare
+    begin
+      RETURN QUERY
+      SELECT students.*, ${totalQuery} AS total
+      FROM students
+      ${filterQuery}
+      ORDER BY students.name
+      LIMIT $1 OFFSET $2;
+
+      IF FOUND THEN return; end if;
+
+      RETURN QUERY
+      SELECT students.*, ${totalQueryOrig} AS total
+      FROM students
+      ORDER BY students.name
+      LIMIT $1 OFFSET $2;
+
+    end;
+    $_$;
+
+    select * from get_all_data_if_filter_returns_nothing_students();
     `;
 
-    db.query(query, [limit, offset], function (err, results) {
-      if (err) throw `Database error! ${err}`;
-      callback(results.rows);
-    });
+    db.multi(query, [limit, offset])
+      .then(result => {
+        callback(result[1]);
+      })
+      .catch(error => {
+        console.log("error:", error);
+      });
   },
   // post
   create(data, callback) {
